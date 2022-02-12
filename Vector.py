@@ -1,5 +1,6 @@
 class Vector():
     def __init__(self, vec1):
+    """give me 1st vector"""
         self.__vec = vec1
 
     def getvec(self):

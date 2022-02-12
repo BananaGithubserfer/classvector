@@ -1,25 +1,32 @@
 class Vector():
-    def __init__(self, vec1):
-    """give me 1st vector"""
-        self.__vec = vec1
+    def __init__(self, vecx, vecy):
+        """give me y and x of 1st vector"""
+        self._vecx = vecx
+        self._vecy = vecy
 
     def getvec(self):
-        """get self.vector"""
-        return (self.__vec)
+        """get vector"""
+        return (self._vecx, self._vecy)
 
-    def changevec(self, newvec):
+    def changevec(self, newvecx, newvecy):
         """give me new vector"""
-        self.__vec = newvec
+        self._vecx = newvecx
+        self._vecy = newvecy
 
-    def sum(self, vec2):
+    def __add__(self, other):
         """give me second vector"""
-        return([self.__vec[0] + vec2[0], self.__vec[1] + vec2[1]])
+        return (self._vecx + other._vecx, self._vecy + other._vecy)
 
-    def dif(self, vec2):
+    def __sub__(self, other):
         """give me second vector"""
-        return([self.__vec[0] + -vec2[0], self.__vec[1] + -vec2[1]])
+        return (self._vecx + -other._vecx, self._vecy + -other._vecy)
 
-    def mult(self, num):
+    def __mul__(self, num):
         """give me number to multiplication"""
-        return ([self.__vec[0]*num, self.__vec[1]*num])
+        return ([self._vecx * num, self._vecy * num])
 
+
+#x = Vector(22, 22)
+#y = Vector(22, 22)
+
+#print(x * 2)

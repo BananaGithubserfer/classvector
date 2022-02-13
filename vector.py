@@ -19,7 +19,7 @@ class Vector():
 
     def __sub__(self, other):
         """give me second vector"""
-        return (self._vecx + -other._vecx, self._vecy + -other._vecy)
+        return (self._vecx - other._vecx, self._vecy - other._vecy)
 
     def __mul__(self, num):
         """give me number to multiplication"""

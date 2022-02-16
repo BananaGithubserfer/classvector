@@ -23,32 +23,44 @@ class Vector():
 
     def __mul__(self, num):
         """give me number to multiplication"""
-        return ([self._vecx * num, self._vecy * num])
+        return [self._vecx * num, self._vecy * num]
 
     def __truediv__(self, num):
-        return(self._vecx // num, self._vecy // num)
+        return self._vecx // num, self._vecy // num
 
     def __iadd__(self, other):
         """give me other vector"""
-        self.vecx = self._vecx + other._vecx
-        self.vecy = self._vecy + other._vecy
+        self._vecx = int(self._vecx) + int(other._vecx)
+        self._vecy = int(self._vecy) + int(other._vecy)
+        return self
 
     def __isub__(self, other):
         """give me other vector"""
-        self.vecx = self._vecx + -other._vecx
-        self.vecy = self._vecy + -other._vecy
+        self._vecx = self._vecx - other._vecx
+        self._vecy = self._vecy - other._vecy
+        return self
+
 
     def __imul__(self, num):
         """give me number"""
         self._vecx = self._vecx * num
         self._vecy = self._vecy * num
+        return self
 
     def __idiv__(self, num):
-        """give me a number"""
-        self.vecx = self._vecx / num
-        self.vecy = self._vecy / num
+        """give me number"""
+        print(self._vecy)
+        print(self._vecx)
+#        self._vecx = self._vecx / num
+#        self._vecy = self._vecy / num
+        return self
 
-#x = Vector(22, 22)
-#y = Vector(22, 22)
 
-#print(x / 2)
+#print(x.getvec())
+
+#y+=y
+#x = Vector(11, 11)
+#y = Vector(11, 11)
+
+#x-=y
+#print(x)

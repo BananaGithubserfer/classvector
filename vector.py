@@ -48,5 +48,5 @@ class Vector():
 
     def __idiv__(self, num):
         """give me number"""
-        self.end = (self.end[0] / num, self.end[1] // num)
+        self.end = (self.end[0] / num, self.end[1] / num)
         return self

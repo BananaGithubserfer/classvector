@@ -1,4 +1,3 @@
-#classvector
 class Vector():
     def __init__(self, vecx, vecy):
         """give me y and x of 1st vector"""

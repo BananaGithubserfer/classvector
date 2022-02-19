@@ -1,66 +1,52 @@
 class Vector():
-    def __init__(self, vecx, vecy):
+    def __init__(self, startx, starty, endx, endy):
         """give me y and x of 1st vector"""
-        self.vecx = vecx
-        self.vecy = vecy
+        self.start = (startx, starty)
+        self.end = (endx, endy)
 
-    def getvec(self):
+    def getstart(self):
         """get vector"""
-        return self.vecx, self.vecy
+        return self.start
 
-    def changevec(self, newvecx, newvecy):
+    def getend(self):
+        return self.end
+
+    def changevec(self, startx, starty, endx, endy):
         """give me new vector"""
-        self.vecx = newvecx
-        self.vecy = newvecy
+        self.start = (startx, starty)
+        self.end = (endx, endy)
 
     def __add__(self, other):
         """give me second vector"""
-        return self.vecx + other.vecx, self.vecy + other.vecy
+        return self.start[0], self.start[1], self.end[0] + other.end[0], self.end[1] + other.end[1],
 
     def __sub__(self, other):
         """give me second vector"""
-        return self.vecx - other.vecx, self.vecy - other.vecy
+        return self.start[0], self.start[1], self.end[0] - other.end[0], self.end[1] - other.end[1],
 
     def __mul__(self, num):
         """give me number to multiplication"""
-        return self.vecx * num, self.vecy * num
+        return self.start[0], self.start[1], self.end[0] * num, self.end[0] * num
 
     def __truediv__(self, num):
-        return self.vecx // num, self.vecy // num
+        return self.start[0], self.start[1], self.end[0] // num, self.end[1] // num
 
     def __iadd__(self, other):
         """give me other vector"""
-        self.vecx = self.vecx + other.vecx
-        self.vecy = self.vecy + other.vecy
+        self.end = (self.end[0] + other.end[0], self.end[1] + other.end[1])
         return self
 
     def __isub__(self, other):
         """give me other vector"""
-        self.vecx = self.vecx - other.vecx
-        self.vecy = self.vecy - other.vecy
+        self.end = (self.end[0] - other.end[0], self.end[1] - other.end[1])
         return self
-
 
     def __imul__(self, num):
         """give me number"""
-        self.vecx = self.vecx * num
-        self.vecy = self.vecy * num
+        self.end = (self.end[0] * num, self.end[1] * num)
         return self
 
     def __idiv__(self, num):
         """give me number"""
-#        print(self._vecy)
-#        print(self._vecx)
-        self.vecx = self.vecx / num
-        self.vecy = self.vecy / num
+        self.end = (self.end[0] / num, self.end[1] // num)
         return self
-
-
-#print(x.getvec())
-
-#y+=y
-#x = Vector(11, 11)
-#y = Vector(11, 11)
-
-#x-=y
-#print(x)

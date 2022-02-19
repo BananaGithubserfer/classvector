@@ -18,35 +18,36 @@ class Vector():
 
     def __add__(self, other):
         """give me second vector"""
-        return self.start[0], self.start[1], self.end[0] + other.end[0], self.end[1] + other.end[1]
+        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) + (other.end[0]-other.start))+self.start[0], ((self.end[1]-self.start[1]) + (other.end[1]-other.start[1]))+self.start[1]
 
     def __sub__(self, other):
         """give me second vector"""
-        return self.start[0], self.start[1], self.end[0] - other.end[0], self.end[1] - other.end[1]
+        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) - (other.end[0]-other.start))+self.start[0], ((self.end[1]-self.start[1]) - (other.end[1]-other.start[1]))+self.start[1]
 
     def __mul__(self, num):
         """give me number to multiplication"""
-        return self.start[0], self.start[1], self.end[0] * num, self.end[0] * num
+        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) * num)+self.start[0], ((self.end[1]-self.start[1]) * num)+self.start[1]
 
     def __truediv__(self, num):
-        return self.start[0], self.start[1], self.end[0] // num, self.end[1] // num
+        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) // num)+self.start[0], ((self.end[1]-self.start[1]) // num)+self.start[1]
 
     def __iadd__(self, other):
         """give me other vector"""
-        self.end = (self.end[0] + other.end[0], self.end[1] + other.end[1])
+        self.end = (((self.end[0]-self.start[0]) + (other.end[0]-other.start))+self.start[0], ((self.end[1]-self.start[1]) + (other.end[1]-other.start[1]))+self.start[1])
         return self
 
     def __isub__(self, other):
         """give me other vector"""
-        self.end = (self.end[0] - other.end[0], self.end[1] - other.end[1])
+        self.end = (((self.end[0]-self.start[0]) + (other.end[0]-other.start))+self.start[0], ((self.end[1]-self.start[1]) + (other.end[1]-other.start[1]))+self.start[1])
         return self
 
     def __imul__(self, num):
         """give me number"""
-        self.end = (self.end[0] * num, self.end[1] * num)
+        self.end = (((self.end[0]-self.start[0]) * num)+self.start[0], ((self.end[1]-self.start[1]) * num)+self.start[1])
+
         return self
 
     def __itruediv__(self, num):
         """give me number"""
-        self.end = (self.end[0] / num, self.end[1] / num)
+        self.end = (((self.end[0]-self.start[0]) / num)+self.start[0], ((self.end[1]-self.start[1]) / num)+self.start[1])
         return self

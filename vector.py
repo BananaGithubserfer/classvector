@@ -18,11 +18,11 @@ class Vector():
 
     def __add__(self, other):
         """give me second vector"""
-        return self.start[0], self.start[1], self.end[0] + other.end[0], self.end[1] + other.end[1],
+        return self.start[0], self.start[1], self.end[0] + other.end[0], self.end[1] + other.end[1]
 
     def __sub__(self, other):
         """give me second vector"""
-        return self.start[0], self.start[1], self.end[0] - other.end[0], self.end[1] - other.end[1],
+        return self.start[0], self.start[1], self.end[0] - other.end[0], self.end[1] - other.end[1]
 
     def __mul__(self, num):
         """give me number to multiplication"""

@@ -51,3 +51,4 @@ class Vector():
         """give me number"""
         self.end = (((self.end[0]-self.start[0]) / num)+self.start[0], ((self.end[1]-self.start[1]) / num)+self.start[1])
         return self
+turn self

@@ -40,7 +40,6 @@ class Vector():
         self.vecy = self.vecy - other.vecy
         return self
 
-
     def __imul__(self, num):
         """give me number"""
         self.vecx = self.vecx * num
@@ -49,18 +48,17 @@ class Vector():
 
     def __idiv__(self, num):
         """give me number"""
-#        print(self._vecy)
-#        print(self._vecx)
+        #        print(self._vecy)
+        #        print(self._vecx)
         self.vecx = self.vecx / num
         self.vecy = self.vecy / num
         return self
 
+# print(x.getvec())
 
-#print(x.getvec())
+# y+=y
+# x = Vector(11, 11)
+# y = Vector(11, 11)
 
-#y+=y
-#x = Vector(11, 11)
-#y = Vector(11, 11)
-
-#x-=y
-#print(x)
+# x-=y
+# print(x)

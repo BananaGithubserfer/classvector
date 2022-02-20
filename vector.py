@@ -1,54 +1,40 @@
-class Vector():
-    def __init__(self, startx, starty, endx, endy):
-        """give me y and x of 1st vector"""
-        self.start = (startx, starty)
-        self.end = (endx, endy)
+from __future__ import annotations
 
-    def getstart(self):
-        """get vector"""
-        return self.start
 
-    def getend(self):
-        return self.end
+class Vector:
+    def __init__(self, start_x: float, start_y: float, end_x: float, end_y: float):
+        self.start_x = start_x
+        self.start_y = start_y
+        self.end_x = end_x
+        self.end_y = end_y
 
-    def changevec(self, startx, starty, endx, endy):
-        """give me new vector"""
-        self.start = (startx, starty)
-        self.end = (endx, endy)
+    def __add__(self, other: Vector) -> Vector:
+        """Сложили с другим вектор - вернули новый вектор"""
+        return Vector(
+            start_x=self.start_x + other.start_x,
+            start_y=self.start_y + other.start_y,
+            end_x=self.end_x + other.end_x,
+            end_y=self.end_y + other.end_y,
+        )
 
-    def __add__(self, other):
-        """give me second vector"""
-        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) + (other.end[0]-other.start[0]))+self.start[0], ((self.end[1]-self.start[1]) + (other.end[1]-other.start[1]))+self.start[1]
-
-    def __sub__(self, other):
-        """give me second vector"""
-        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) - (other.end[0]-other.start[0]))+self.start[0], ((self.end[1]-self.start[1]) - (other.end[1]-other.start[1]))+self.start[1]
-
-    def __mul__(self, num):
-        """give me number to multiplication"""
-        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) * num)+self.start[0], ((self.end[1]-self.start[1]) * num)+self.start[1]
-
-    def __truediv__(self, num):
-        return self.start[0], self.start[1], ((self.end[0]-self.start[0]) // num)+self.start[0], ((self.end[1]-self.start[1]) // num)+self.start[1]
-
-    def __iadd__(self, other):
-        """give me other vector"""
-        self.end = (((self.end[0]-self.start[0]) + (other.end[0]-other.start[0]))+self.start[0], ((self.end[1]-self.start[1]) + (other.end[1]-other.start[1]))+self.start[1])
+    def __iadd__(self, other: Vector) -> Vector:
+        """Сложили с другим, вернули себя"""
+        self.start_x += other.start_x
+        self.start_y += other.start_y
+        self.end_x += other.end_x
+        self.end_y += other.end_y
         return self
 
-    def __isub__(self, other):
-        """give me other vector"""
-        self.end = (((self.end[0]-self.start[0]) - (other.end[0]-other.start[0]))+self.start[0], ((self.end[1]-self.start[1]) - (other.end[1]-other.start[1]))+self.start[1])
-        return self
+    def __neg__(self) -> Vector:
+        return Vector(-self.start_x, -self.start_y, -self.end_x, -self.end_y)
 
-    def __imul__(self, num):
-        """give me number"""
-        self.end = (((self.end[0]-self.start[0]) * num)+self.start[0], ((self.end[1]-self.start[1]) * num)+self.start[1])
+    def __str__(self):
+        return f"({self.start_x}, {self.start_y}); ({self.end_x}, {self.end_y})"
 
-        return self
+    def __mul__(self, other: int | Vector):
+        if isinstance(other, int):
+            pass  # реализуй по моей схеме
+        raise Exception("bad type")
 
-    def __itruediv__(self, num):
-        """give me number"""
-        self.end = (((self.end[0]-self.start[0]) / num)+self.start[0], ((self.end[1]-self.start[1]) / num)+self.start[1])
-        return self
-
+    def __sub__(self, other: Vector) -> Vector:
+        return self + -other

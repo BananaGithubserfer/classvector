@@ -46,8 +46,8 @@ class Vector:
             return Vector(
                 start_x=self.start_x * other,
                 start_y=self.start_y * other,
-                end_x=self.end_x * other.,
-                end_y=self.end_y * other.,
+                end_x=self.end_x * other,
+                end_y=self.end_y * other,
         )
 
 

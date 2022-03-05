@@ -32,12 +32,24 @@ class Vector:
         return f"({self.start_x}, {self.start_y}); ({self.end_x}, {self.end_y})"
 
     def __mul__(self, other: int | Vector):
-        return Vector(
-            start_x=self.start_x * other.start_x,
-            start_y=self.start_y * other.start_y,
-            end_x=self.end_x * other.end_x,
-            end_y=self.end_y * other.end_y,
+        if isinstance(other, Vector):
+#            print("vector")
+            return Vector(
+                start_x=self.start_x * other.start_x,
+                start_y=self.start_y * other.start_y,
+                end_x=self.end_x * other.end_x,
+                end_y=self.end_y * other.end_y,
         )
+
+        elif isinstance(other, int):
+#            print("int")
+            return Vector(
+                start_x=self.start_x * other,
+                start_y=self.start_y * other,
+                end_x=self.end_x * other.,
+                end_y=self.end_y * other.,
+        )
+
 
     def __imul__(self, other):
         self.start_x *= other.start_x

@@ -32,9 +32,34 @@ class Vector:
         return f"({self.start_x}, {self.start_y}); ({self.end_x}, {self.end_y})"
 
     def __mul__(self, other: int | Vector):
-        if isinstance(other, int):
-            pass  # реализуй по моей схеме
-        raise Exception("bad type")
+        return Vector(
+            start_x=self.start_x * other.start_x,
+            start_y=self.start_y * other.start_y,
+            end_x=self.end_x * other.end_x,
+            end_y=self.end_y * other.end_y,
+        )
+
+    def __imul__(self, other):
+        self.start_x *= other.start_x
+        self.start_y *= other.start_y
+        self.end_x *= other.end_x
+        self.end_y *= other.end_y
+        return self
+
+    def __truediv__(self, other: int | Vector):
+        return Vector(
+            start_x=self.start_x / other.start_x,
+            start_y=self.start_y / other.start_y,
+            end_x=self.end_x / other.end_x,
+            end_y=self.end_y / other.end_y,
+        )
+
+    def __idiv__(self, other):
+        self.start_x /= other.start_x
+        self.start_y /= other.start_y
+        self.end_x /= other.end_x
+        self.end_y /= other.end_y
+        return self
 
     def __sub__(self, other: Vector) -> Vector:
         return self + -other

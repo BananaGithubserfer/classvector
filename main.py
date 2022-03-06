@@ -5,11 +5,11 @@ first = Vector(1, 1, 22, 22)
 
 second = Vector(-1, -1, -12, -22)
 
-first = first * first
+first = first * 5
 #print(third)
 
 #first += second
 #print('first += second', first)
 
 #print('second - zero vector', second - first)
-print(type(first))
+print(first)

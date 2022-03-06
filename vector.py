@@ -93,6 +93,7 @@ class Vector:
         return self + -other
 
     def movevec(self, place):
+        #move a start of the vector
         if isinstance(place, tuple):
            self.start_x = place(0)
            self.start_y = place(1)
